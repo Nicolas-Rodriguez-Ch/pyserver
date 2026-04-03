@@ -2,7 +2,8 @@ from pydantic_settings import BaseSettings, SettingsConfigDict
 
 
 class Settings(BaseSettings):
-    RQUID: str = '9878'
+    UUID: str = ""
+    DB_URL: str = ""
 
     model_config = SettingsConfigDict(env_file=".env")
 
