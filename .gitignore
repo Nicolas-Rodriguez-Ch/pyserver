@@ -12,3 +12,4 @@ wheels/
 .venv
 .vscode
 plan.md
+example.py
