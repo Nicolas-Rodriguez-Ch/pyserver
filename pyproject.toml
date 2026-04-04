@@ -9,6 +9,7 @@ dependencies = [
     "pydantic-settings>=2.13.1",
     "sqlalchemy>=2.0.48",
     "fastapi[standard]>=0.135.3",
+    "psycopg2>=2.9.11",
 ]
 [tool.fastapi]
 entrypoint = "main:app"
