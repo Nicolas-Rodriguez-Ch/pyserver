@@ -5,12 +5,12 @@ from ..base_router import BaseRouter
 class HealthcheckRouter(BaseRouter):
     prefix = "/healthcheck"
     tags = ["Healthcheck"]
-    responses = {404: {"message": "service not available"}}
+    responses = {404: {"description": "service not available"}}
 
     def setup_routes(self):
         @self.router.get("/")
         async def healthcheck():
-            return {"message": "Server running healthy"}
+            return {"description": "Server running healthy"}
 
 
 router = HealthcheckRouter().router

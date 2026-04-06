@@ -11,7 +11,7 @@ from sqlalchemy import select
 class GamesRouter(BaseRouter):
     prefix = "/games"
     tags = ["Games"]
-    responses = {404: {"message": {"service not found"}}}
+    responses = {404: {"description": "service not found"}}
 
     def setup_routes(self):
         @self.router.get("/")
@@ -22,7 +22,7 @@ class GamesRouter(BaseRouter):
 
                 games = await service.get_all_games(session)
                 games_response = [GameResponse.model_validate(game) for game in games]
-                return {"message": "Games found!", "games": games_response}
+                return {"description": "Games found!", "games": games_response}
             except Exception as e:
                 raise HTTPException(status_code=500, detail=str(e))
 
@@ -38,7 +38,7 @@ class GamesRouter(BaseRouter):
                 new_game = await service.create_game(session, game_dict)
                 new_game_response = GameResponse.model_validate(new_game)
                 return {
-                    "message": "New game cretaed successfuly",
+                    "description": "New game cretaed successfuly",
                     "new_game": new_game_response,
                 }
             except Exception as e:
